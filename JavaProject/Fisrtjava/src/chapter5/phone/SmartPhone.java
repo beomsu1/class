@@ -21,6 +21,24 @@ public class SmartPhone {
 		this.volume = volume;
 	}
 
+	SmartPhone(String color, float size) {
+		
+		this(color , size , 0); // this() => 다른 생성자 호출
+		
+//		this.color = color;
+//		this.size = size;
+//		this.volume = 0;
+	}
+
+	SmartPhone() {
+		
+		this("white" , 4.5f , 5);
+		
+//		color = "white";
+//		size = 4.5f;
+//		volume = 5;
+	}
+
 	void call() {
 		System.out.println("전화 걸기");
 	}

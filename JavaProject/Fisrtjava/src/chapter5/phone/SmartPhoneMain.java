@@ -30,9 +30,16 @@ public class SmartPhoneMain {
 		System.out.println(sp3.color); // String 참조변수 초기화 -> null
 		System.out.println(sp3.size);  // float 초기화 -> 0.0
 		System.out.println(sp3.volume); // int 초기화 -> 0
+		
+		Member member = new Member("KING" , "king@gmail.com" , 20 , "010-0000-0000" , sp2);
+		
+		printInfo(member);
+		
 	}
 	
-	
+	static void printInfo(Member member) {
+		member.showData();
+	}
 	
 	
 	

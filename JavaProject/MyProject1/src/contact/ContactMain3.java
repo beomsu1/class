@@ -6,6 +6,7 @@ public class ContactMain3 {
 
 	public static void main(String[] args) {
 		
+		// 인스턴스 생성
 		Scanner in = new Scanner(System.in);
 		
 		
@@ -33,6 +34,7 @@ public class ContactMain3 {
 		
 		System.out.println("입력 결과 ================");
 		
+		// 인스턴스의 출력 메소드 처리
 		contact.printSimpleData();
 		
 		System.out.println();

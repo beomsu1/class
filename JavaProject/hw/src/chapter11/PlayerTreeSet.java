@@ -12,6 +12,8 @@ public class PlayerTreeSet {
 		treeSet.add(new FootballPlayer("칠웰", 21, "첼시", 26));
 		treeSet.add(new FootballPlayer("엔조", 5, "첼시", 22));
 		treeSet.add(new FootballPlayer("하베르츠", 29, "첼시", 23));
+		treeSet.add(new FootballPlayer("포든", 47, "시티", 22));
+		
 		
 		for(FootballPlayer player : treeSet) {
 			System.out.println(player);

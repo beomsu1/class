@@ -48,7 +48,7 @@ public class FootballPlayer implements Comparable<FootballPlayer>{
 
 	@Override
 	public int hashCode() {
-		return this.name.charAt(name.length()-1);
+		return name.charAt(name.length()-1); // 유니코드로 비교하기 위해서 사용
 	}
 
 	@Override
@@ -56,8 +56,8 @@ public class FootballPlayer implements Comparable<FootballPlayer>{
 		
 		
 		if(obj != null && obj instanceof FootballPlayer) {
-			FootballPlayer fbp = (FootballPlayer)obj;
-			if(team.equals(fbp.getTeam())&&name.equals(fbp.getName())&&age==fbp.getAge());
+			FootballPlayer fbp = (FootballPlayer)obj; // 강제 형 변환
+			if(team.equals(fbp.getTeam())&&name.equals(fbp.getName())&&age==fbp.getAge()); // 정수비교는 ==
 			return true;
 		}
 		
@@ -71,13 +71,13 @@ public class FootballPlayer implements Comparable<FootballPlayer>{
 	}
 
 	@Override
-	public int compareTo(FootballPlayer o) {
+	public int compareTo(FootballPlayer f) { 
 		
-		int compare = team.compareTo(o.getTeam());
+		int compare = team.compareTo(f.getTeam());
 		if(compare == 0) {
-			compare = name.compareTo(o.getName());
+			compare = name.compareTo(f.getName());
 			if(compare==0) {
-				compare = number-o.getNumber();
+				compare = number-f.getNumber();
 			}
 		}
 		

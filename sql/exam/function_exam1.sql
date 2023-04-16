@@ -89,7 +89,8 @@ group by deptno;
 -- 평균 급여는 정수로 반올림 하시오. DECODE 사용.
 
 select deptno ,
-        decode(deptno,10,'A',20,'B',30,'C')as name,
+        decode(deptno,10,'A',20,'B',30,'C')as "부서이름",
+        decode(deptno,10,'서울',20,'부산',30,'울산')as "지역",
 count(*) ,round(avg(sal)) 
 from emp
 group by deptno;

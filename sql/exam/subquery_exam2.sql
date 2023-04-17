@@ -6,6 +6,13 @@ from emp e
 where e.job = (select job from emp where empno = 7788)
 ;
 
+-- 조인 활용
+select *
+from emp e1, emp e2
+where e2.empno=7788
+and e1.job = e2.job
+;
+
 -- 44. 사원번호가 7499인 사원보다 급여가 많은 사원을 표시하시오. 사원이름과 담당 업무
 
 select ename , job
@@ -21,10 +28,10 @@ where sal = ( select min(sal) from emp)
 ;
 -- 46. 평균급여가 가장 적은 직급의 직급 이름과 직급의 평균을 구하시오.
 
-select job , avg(sal)
+select job  , avg(sal)
 from emp
 group by job
-having sal = (select min(avg(sal)) from emp group by job)
+having avg(sal) = (select min(avg(sal)) from emp group by job)
 ;
 
 -- 47. 각 부서의 최소 급여를 받는 사원의 이름, 급여, 부서번호를 표시하시오.

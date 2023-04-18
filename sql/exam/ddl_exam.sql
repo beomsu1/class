@@ -25,7 +25,7 @@ create table phoneInfo_com(
 select * from phoneInfo_basic;
 
 insert into phoneInfo_basic ( idx , fr_name , fr_phonenumber , fr_email , fr_address)
-        values (7745 , 'RAMPARD' , '010-1457-5571' , 'FRANK@CHE','');
+        values (7745 , 'LAMPARD' , '010-1457-5571' , 'FRANK@CHE','');
         
 update phoneInfo_basic
 set fr_name = 'BANJANG';

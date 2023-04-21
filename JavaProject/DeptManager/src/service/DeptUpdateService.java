@@ -7,39 +7,37 @@ import dao.DeptDao;
 import domian.Dept;
 import util.ConnectionProvider;
 
-public class DeptSearchService {
+public class DeptUpdateService {
 
 	DeptDao dao;
 	
 	// 싱글톤 시작
-	private DeptSearchService() {
+	private DeptUpdateService() {
 		this.dao = DeptDao.getInstance();
 	}
+
+	private static DeptUpdateService service = new DeptUpdateService();
 	
-	private static DeptSearchService service = new DeptSearchService();
-	
-	public static DeptSearchService getInstance() {
+	public static DeptUpdateService getInstance() {
 		return service;
 	}
 	// 싱글톤 끝
 	
-	
-	// 검색 번호를 받고 어떤 Dept 정보를 저장하고 있는 객체를 반환
-	public Dept searchDept(int deptno) {
-		
-		Connection conn =null;
-		Dept dept = null;
-		
+	public int updateDept(Dept newDept) {
+
+		Connection conn = null;
+		int result = 0;
+
 		try {
 			conn = ConnectionProvider.getConnection();
-			dept = dao.selectByDeptno(conn,deptno);
-			
-		} catch (SQLException e) {
-			// 데이터베이스 연결실패
-			e.printStackTrace();
 
+			result = dao.UpdateDeptByDeptno(conn, newDept);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} finally {
-			if(conn != null) {
+			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
@@ -49,9 +47,8 @@ public class DeptSearchService {
 			}
 		}
 
-		return dept;
+		return result;
+
 	}
-	
-	
-	
+
 }

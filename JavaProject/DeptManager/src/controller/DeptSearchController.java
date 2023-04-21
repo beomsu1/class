@@ -4,16 +4,24 @@ import domian.Dept;
 import main.DeptManagerMain;
 import service.DeptSearchService;
 
-public class DeptSearchController {
+public class DeptSearchController implements Controller{
 
 	// Service
 	DeptSearchService searchService;
 
-	public DeptSearchController() {
-		this.searchService = new DeptSearchService();
+	// 싱글톤 시작
+	private DeptSearchController() {
+		this.searchService = DeptSearchService.getInstance();
 	}
 
-	public void searchDept() {
+	private static DeptSearchController controller = new DeptSearchController();
+	
+	public static DeptSearchController getInstance() {
+		return controller;
+	}
+	// 싱글톤 끝
+	
+	public void process() {
 
 		// view : 검색할 부서번호 사용자로부터 받는 화면
 		int deptno = getDeptNo();

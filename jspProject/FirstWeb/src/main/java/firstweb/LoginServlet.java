@@ -9,56 +9,55 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/auth/login") 
+@WebServlet("/auth/login") // localhost:8080/web/auth/login
 public class LoginServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(
-			HttpServletRequest request,
+			HttpServletRequest request, 
 			HttpServletResponse response)
-					throws ServletException, IOException {
+			throws ServletException, IOException {
 
-		///////////////////////////////////
-		// 사용자 요청 처리
-		
+		////////////////////////////////
+		// 사용자 요청 처리		
+
 		String userid = request.getParameter("userid");
-		System.out.println("사용자 입력 id : " + userid);
-		
-		String passward = request.getParameter("passward");
-		System.out.println("사용자 입력 pw : " + passward);
-		
-		///////////////////////////////////
+		System.out.println("사용자 입렵 id : " + userid);
+
+		String password = request.getParameter("password");
+		System.out.println("사용자 입력 PW : " + password);
+
+		/////////////////////////////////
 		// 응답
-		
+
 		PrintWriter out = response.getWriter();
 		out.println("id : " + userid);
-		out.println("pw : " + passward);
+		out.println("PW : " + password);
 		out.close();
 	}
 
 	protected void doPost(
-			HttpServletRequest request,
+			HttpServletRequest request, 
 			HttpServletResponse response)
-					throws ServletException, IOException {
-		
-		///////////////////////////////////
+			throws ServletException, IOException {
+
+		////////////////////////////////
 		// 사용자 요청 처리
-		
+
 		String userid = request.getParameter("userid");
-		System.out.println("사용자 입력 id : " + userid);
-		
-		String passward = request.getParameter("passward");
-		System.out.println("사용자 입력 pw : " + passward);
-		
-		///////////////////////////////////
+		System.out.println("사용자 입렵 id : " + userid);
+
+		String password = request.getParameter("password");
+		System.out.println("사용자 입력 PW : " + password);
+
+		/////////////////////////////////
 		// 응답
-		
+
 		PrintWriter out = response.getWriter();
 		out.println("id : " + userid);
-		out.println("pw : " + passward);
+		out.println("PW : " + password);
 		out.close();
-		
+
 	}
 
 }

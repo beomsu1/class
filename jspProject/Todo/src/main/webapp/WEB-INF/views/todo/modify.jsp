@@ -17,7 +17,7 @@
 	날짜 : <input type="date" name="duedate" value="${todo.duedate}" > <br>
 	완료 : <input type="checkbox" name="complete" ${todo.complete == 'done' ? 'checked' : ''}> <br>
 	<!--  checkbox value => "on" -->
-	<input type="reset"> <input type="submit" value="Modify"> 
+	<input type="reset"> <input type="submit" value="수정"> 
 	
 	</form>
 

@@ -24,7 +24,7 @@ public class TodoDeleteController extends HttpServlet {
 		
 		
 		// 결과
-		
+		System.out.println(no + "번 할 일이 삭제되었습니다.");
 		
 		// redirect( list )
 		response.sendRedirect("list");

@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import todo.service.TodoDeleteService;
 
@@ -22,6 +23,22 @@ public class TodoDeleteController extends HttpServlet {
 			throws ServletException, IOException {
 		
 		System.out.println("TodoDeleteController... doPost()...");
+		
+		// 회원의 로그인 여부를 확인 후 비로그인 상태 -> 로그인 페이지로 이동
+		HttpSession session = request.getSession();
+		
+		// 판단하는 조건 session이 새로만들어진 세션 X , 세션에 로그인 정보 O -> 로그인 상태
+		// 리다이렉트 -> 로그인 페이지
+		// 새로만들어진 세션이거나 세션에 로그인 정보가 없다면 리다이렉트
+		if(session.isNew() || session.getAttribute("loginInfo") == null) {
+			
+			System.out.println("로그인 상태가 아닙니다.");
+			
+			// 로그인 페이지로 이동
+			response.sendRedirect("/app/login");
+			
+			return;
+		}
 		
 		// 사용자로부터 no 받기
 		String noStr = request.getParameter("no");

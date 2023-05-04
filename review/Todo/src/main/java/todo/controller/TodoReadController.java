@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ReadController
- */
 @WebServlet("/todo/read")
 public class TodoReadController extends HttpServlet {
 	

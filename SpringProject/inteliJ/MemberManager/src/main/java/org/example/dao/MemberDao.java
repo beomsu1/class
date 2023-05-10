@@ -23,8 +23,7 @@ public class MemberDao implements Dao {
     }
 
     @Override
-    public void update(Member member) {
-        map.put(member.getEmail(), member);
+    public void update(Member member) {map.put(member.getEmail(), member);
     }
 
     @Override

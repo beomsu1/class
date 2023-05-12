@@ -19,7 +19,7 @@ public class SearchController {
             Model model,
             String keyword,
             @RequestParam(value = "tno", required = false ) String tno, // required 기본값은 true -> null이 못들어감
-            @RequestParam(value = "page" , defaultValue = "1") int page,
+            @RequestParam(value = "page" , defaultValue = "1") int page, // defaultValue 값을 입력하지 않아도 기본값 1 입력
             HttpServletRequest request,
             @ModelAttribute("req") UserRequest userRequest // UserRequest 을 req로 이름을 변경.
             ){

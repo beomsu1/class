@@ -18,9 +18,9 @@ public class CookieController {
 
     // /cookie/make
     @RequestMapping("/make")
-    public String makeCookie(HttpServletResponse  response ){
+    public String makeCookie(HttpServletResponse response ){
 
-        // 쿠키 생성 -? 응답
+        // 쿠키 생성 -> 응답
         Cookie cookie = new Cookie("userid","cool");
         // 경로 설정 :
         cookie.setPath("/");

@@ -4,6 +4,14 @@
 
 <!-- interface 연결되는 mapper XML -->
 <!-- namespace 속성 설정은 필수!!! -> mapper interface의 풀네임 -->
-<mapper namespace="">
+<mapper namespace="com.hi.board.mapper.BoardMapper">
+
+    <insert id="insertBoard" parameterType="com.hi.board.domain.RequestRegBoard">
+        insert into tbl_board (title,content,writer) value (#{title} , #{content} , #{writer})
+    </insert>
+
+    <select id="selectAll" resultType="com.hi.board.domain.BoardDTO">
+        select * from tbl_board
+    </select>
 
 </mapper>

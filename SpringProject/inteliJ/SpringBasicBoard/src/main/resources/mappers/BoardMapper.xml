@@ -7,7 +7,8 @@
 <mapper namespace="com.hi.board.mapper.BoardMapper">
 
     <insert id="insertBoard" parameterType="com.hi.board.domain.RequestRegBoard">
-        insert into tbl_board (title,content,writer) value (#{title} , #{content} , #{writer})
+        insert into tbl_board (title,content,writer,file) value (#{title} , #{content} , #{writer} , #{filename})
+        <!-- file : 파일 자체를 저장하는 것은 X 파일의 이름을 저장하는 문자열 -->
     </insert>
 
     <select id="selectAll" resultType="com.hi.board.domain.BoardDTO">

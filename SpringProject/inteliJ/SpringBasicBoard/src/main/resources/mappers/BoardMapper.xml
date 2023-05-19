@@ -1,18 +1,53 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<!-- interface 연결되는 mapper XML -->
-<!-- namespace 속성 설정은 필수!!! -> mapper interface의 풀네임 -->
 <mapper namespace="com.hi.board.mapper.BoardMapper">
 
-    <insert id="insertBoard" parameterType="com.hi.board.domain.RequestRegBoard">
-        insert into tbl_board (title,content,writer,file) value (#{title} , #{content} , #{writer} , #{filename})
-        <!-- file : 파일 자체를 저장하는 것은 X 파일의 이름을 저장하는 문자열 -->
-    </insert>
+    <select id="selectList" resultType="com.hi.board.domain.BoardDTO">
+        select * from tbl_board order by bno desc limit #{limit1} , #{limit2}
+    </select>
 
-    <select id="selectAll" resultType="com.hi.board.domain.BoardDTO">
+    <select id="selectTotalCount" resultType="int">
+        select count(*) from tbl_board
+    </select>
+
+    <select id="selectAll"
+            resultType="com.hi.board.domain.BoardDTO"
+    >
         select * from tbl_board
     </select>
+
+    <select id="selectByBno"
+            resultType="com.hi.board.domain.BoardDTO"
+    >
+        select * from tbl_board where bno=#{bno}
+    </select>
+
+
+    <insert id="insertBoard"
+            parameterType="com.hi.board.domain.RequestRegBoard">
+
+        <!-- file : 파일의 이름을 저장하는 문자열 -->
+        insert into tbl_board (title, content, writer, file)
+
+        values (#{title}, #{content}, #{writer}, #{filename})
+
+    </insert>
+
+
+    <update id="updateBoard"
+            parameterType="com.hi.board.domain.RequestModifyRequest">
+
+        update tbl_board
+
+        set title=#{title}, content=#{content}, writer=#{writer}, file=#{filename}
+
+        where bno=#{bno}
+
+    </update>
+
+    <delete id="deleteBoard">
+        delete from tbl_board where bno=#{no}
+    </delete>
 
 </mapper>

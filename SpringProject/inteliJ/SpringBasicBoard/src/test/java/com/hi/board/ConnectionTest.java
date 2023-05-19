@@ -28,14 +28,24 @@ public class ConnectionTest {
     private BoardMapper boardMapper;
 
     @Test
-    public void deptListTest(){
+    public void selectByBnoTest() {
+        BoardDTO board = boardMapper.selectByBno(1);
+        log.info("1번 게시물 확인 : " + board);
+        board = boardMapper.selectByBno(6);
+        log.info("6번 게시물 확인 : " + board);
+
+    }
+
+
+    @Test
+    public void deptListTest() {
         List<BoardDTO> list = boardMapper.selectAll();
 
         log.info(list);
     }
 
     @Test
-    public void boardInsertTest(){
+    public void boardInsertTest() {
 
         RequestRegBoard board = RequestRegBoard.builder()
                 .title("테스트 제목")
@@ -50,11 +60,12 @@ public class ConnectionTest {
     }
 
     @Test
-    public void mapperTest(){
+    public void mapperTest() {
 
         Assertions.assertNotNull(boardMapper);
 
     }
+
     @Test
     public void connectionTest() throws SQLException {
 

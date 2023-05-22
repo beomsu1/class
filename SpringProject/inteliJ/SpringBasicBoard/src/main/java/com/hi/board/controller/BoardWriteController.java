@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@Log4j2
 @RequestMapping("/board/write")
+@Log4j2
 public class BoardWriteController {
 
     @Autowired
@@ -21,22 +21,20 @@ public class BoardWriteController {
 
     @GetMapping
     public void getWriteForm(){
-        log.info("GET /board/write");
-
+        log.info("GET   /board/write");
     }
 
     @PostMapping
     public String write(
             RequestRegBoard board,
-            HttpServletRequest request // 실제경로 구하기 위해 필요
+            HttpServletRequest request
     ){
-        log.info("POST /board/write");
+        log.info("POST   /board/write");
         log.info(board);
 
-        writeService.writeBoard(board , request);
+        writeService.writeBoard(board, request);
 
         return "redirect:/board/list";
     }
-
 
 }

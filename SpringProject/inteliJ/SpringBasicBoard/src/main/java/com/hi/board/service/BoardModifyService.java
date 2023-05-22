@@ -21,40 +21,38 @@ public class BoardModifyService {
     public int modifyBoardDTO(
             RequestModifyRequest modifyRequest,
             HttpServletRequest request
-    ) {
+    ){
 
         // 파일 저장 : 파일이 존재하면 저장
-        if (modifyRequest.getFile() != null && modifyRequest.getFile().getSize() > 0) {
+        if(modifyRequest.getFile() != null
+                && modifyRequest.getFile().getSize()>0 ){
 
-            //웹경로
+            // 웹 경로
             String uri = "/uploadfile/board";
-            //실제경로
+            // 실제경로
             String realPath = request.getSession().getServletContext().getRealPath(uri);
-            //새로운 파일이름
-            String newFilename = UUID.randomUUID().toString() + modifyRequest.getFile().getOriginalFilename();
-            //저장
-            File newFile = new File(realPath, newFilename); // new File(디렉토리 , 파일이름)
+            // 새로운 파일 이름
+            String newFilename = UUID.randomUUID().toString()+modifyRequest.getFile().getOriginalFilename();
+            // 저장
+            File newFile = new File(realPath, newFilename);
             try {
                 modifyRequest.getFile().transferTo(newFile);
-                //filename 속성에 새로운 파일 이름을 저장
+                // filename 속성에 새로운 파일 이름을 저장
                 modifyRequest.setFilename(newFilename);
             } catch (IOException e) {
-                // throw new RuntimeException(e);
-                // filename oldfile이 가지고 있느 파일 이름 설정
+                //throw new RuntimeException(e);
+                // filename oldfile이 가지고 있는 파일 이름 설정
                 modifyRequest.setFilename(modifyRequest.getOldfile());
             }
-
         } else {
-            // filename 속성에 이전 업로드 되어있는 파일 이름을 저장
-            modifyRequest.setFilename(modifyRequest.getFilename());
+            // filename 속성에 이전 업로드된 파일 이름을 저장
+            modifyRequest.setFilename(modifyRequest.getOldfile());
         }
 
         log.info(modifyRequest);
 
-        // BoardMapper update 요청
+        // BoaerMapper update 요청
         return boardMapper.updateBoard(modifyRequest);
-
     }
-
 
 }

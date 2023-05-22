@@ -1,6 +1,5 @@
 package com.hi.board.domain;
 
-
 import lombok.*;
 
 @AllArgsConstructor
@@ -15,7 +14,7 @@ public class BoardDTO {
     private String content;
     private String writer;
     // 업로드한 파일의 이름
-    private String file; // 컬럼이름
+    private String file;
     private String regdate;
     private String updatedate;
 }

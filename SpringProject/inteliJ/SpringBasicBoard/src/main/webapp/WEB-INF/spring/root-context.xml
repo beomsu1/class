@@ -18,7 +18,7 @@
         : Service / Dao 관련
     -->
 
-    <context:component-scan base-package="com.hi.board.service"/>
+    <context:component-scan base-package="com.hi.board.service" />
 
     <bean id="hikariConfig"
           class="com.zaxxer.hikari.HikariConfig"
@@ -34,7 +34,7 @@
                 <prop key="prepStmtCashSqlLimit">2048</prop>
             </props>
         </property>
-
+        
     </bean>
 
     <!-- Connection 제공 -->

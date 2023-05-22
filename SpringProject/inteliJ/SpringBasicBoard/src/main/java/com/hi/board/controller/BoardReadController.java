@@ -20,8 +20,9 @@ public class BoardReadController {
             @RequestParam("bno") int bno,
             Model model
     ){
-       log.info("/board/read");
+        log.info("/board/read");
 
-       model.addAttribute("article" , readService.getBoardDTO(bno));
+        model.addAttribute("article", readService.getBoardDTO(bno));
+
     }
 }

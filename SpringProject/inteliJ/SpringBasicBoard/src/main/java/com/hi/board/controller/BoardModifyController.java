@@ -27,8 +27,8 @@ public class BoardModifyController {
 
     @GetMapping
     public void modifyForm(
-            @RequestParam("bno") int bno,
-            Model model
+        @RequestParam("bno") int bno,
+        Model model
     ){
         // bno 전달 받고 View 로 BoardDTO 객체 전달
         model.addAttribute("board", readService.getBoardDTO(bno));

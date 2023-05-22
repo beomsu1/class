@@ -1,13 +1,15 @@
 package com.hi.board.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.web.multipart.MultipartFile;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
-@Builder
 public class RequestModifyRequest {
 
     private int bno;
@@ -17,4 +19,5 @@ public class RequestModifyRequest {
     private String oldfile;
     private MultipartFile file;
     private String filename;
+
 }

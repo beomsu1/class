@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.Extensions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -27,25 +28,31 @@ public class ConnectionTest {
     @Autowired(required = false)
     private BoardMapper boardMapper;
 
+
+
     @Test
-    public void selectByBnoTest() {
+    public void selectByBnoTest(){
+
         BoardDTO board = boardMapper.selectByBno(1);
-        log.info("1번 게시물 확인 : " + board);
+        log.info("1번 게시물 : "+ board);
         board = boardMapper.selectByBno(6);
-        log.info("6번 게시물 확인 : " + board);
+        log.info("6번 게시물 : " + board);
 
     }
 
 
     @Test
-    public void deptListTest() {
+    public void deptListTest(){
+
         List<BoardDTO> list = boardMapper.selectAll();
 
         log.info(list);
+
     }
 
+
     @Test
-    public void boardInsertTest() {
+    public void boardInsertTest(){
 
         RequestRegBoard board = RequestRegBoard.builder()
                 .title("테스트 제목")
@@ -57,23 +64,28 @@ public class ConnectionTest {
 
         boardMapper.insertBoard(board);
 
+
     }
 
+
     @Test
-    public void mapperTest() {
+    public void mapperTest(){
 
         Assertions.assertNotNull(boardMapper);
 
     }
+
 
     @Test
     public void connectionTest() throws SQLException {
 
         Connection conn = dataSource.getConnection();
 
-        log.info("conn -> " + conn);
+        log.info("conn => " + conn);
 
         conn.close();
 
     }
+
+
 }

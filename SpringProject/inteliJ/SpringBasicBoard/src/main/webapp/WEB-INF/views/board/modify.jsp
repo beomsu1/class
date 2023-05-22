@@ -11,51 +11,63 @@
 <head>
     <title>Title</title>
     <style>
-        td {
+        td  {
             padding: 10px 20px;
         }
     </style>
 </head>
 <body>
-<h1>게시글 수정</h1>
-<hr>
-<form method="post" enctype="multipart/form-data">
-    <input type="hidden" name="bno" value="${board.bno}">
-    <%-- 새로운 파일을 업로드 할 수 있다.
-         이전에 업로드한 파일이 있을 수 있다.
-        --%>
-    <table border="1">
-        <tr>
-            <td>글 제목</td>
-            <td><input type="text" name="title" value="${board.title}"></td>
-        </tr>
-        <tr>
-            <td>내용</td>
-            <td><textarea name="content" rows="4" cols="20">${board.content}</textarea></td>
-        </tr>
-        <tr>
-            <td>작성자</td>
-            <td><input type="text" name="writer" value="${board.writer}"></td>
-        </tr>
-        <tr>
-            <td>첨부된 파일</td>
-            <td>
+    <h1>게시글 수정</h1>
+    <hr>
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" name="bno" value="${board.bno}">
+        <!--
+        새로운 파일을 업로드 할 수 있다!!!
+        이전에 업로드한 파일이 있을 수 있다
+        -->
+        <table border="1">
+            <tr>
+                <td>글제목</td>
+                <td><input type="text" name="title" value="${board.title}"></td>
+            </tr>
+            <tr>
+                <td>내용</td>
+                <td>
+                    <textarea name="content" rows="4" cols="20">${board.content}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>작성자</td>
+                <td>
+                    <input type="text" name="writer" value="${board.writer}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>첨부된 파일</td>
+                <td>
                 <c:if test="${board.file ne null}">
                     <input type="hidden" name="oldfile" value="${board.file}">
+                    ${board.file}
                 </c:if>
-                ${board.file}
-            </td>
-        </tr>
-        <tr>
-            <td>첨부파일</td>
-            <td><input type="file" name="file"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="reset"> <input type="submit" value="수정"></td>
-        </tr>
-    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>첨부파일</td>
+                <td><input type="file" name="file"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="reset">
+                    <input type="submit">
 
-</form>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+
 </body>
 </html>

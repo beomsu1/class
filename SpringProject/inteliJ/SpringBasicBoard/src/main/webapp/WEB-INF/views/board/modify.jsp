@@ -36,12 +36,14 @@
                     <textarea name="content" rows="4" cols="20">${board.content}</textarea>
                 </td>
             </tr>
+
+<%--        불필요해서 삭제 처리
             <tr>
                 <td>작성자</td>
                 <td>
                     <input type="text" name="writer" value="${board.writer}">
                 </td>
-            </tr>
+            </tr>--%>
 
             <tr>
                 <td>첨부된 파일</td>

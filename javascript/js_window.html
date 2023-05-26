@@ -31,7 +31,9 @@
 
     
 }
-document.addEventListener('DOMContnetLoad');
+document.addEventListener('DOMContnetLoaded' , function(){
+    console.log('문서객체를 모두 읽으면 이벤트가 발생하고 콜백함수가 실행된다.')
+});
 
 
     function delMsg(bno){

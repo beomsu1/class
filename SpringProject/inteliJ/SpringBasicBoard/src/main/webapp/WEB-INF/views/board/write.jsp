@@ -11,15 +11,19 @@
     <title>Title</title>
 </head>
 <body>
+
 <h1>게시글 쓰기</h1>
 <hr>
-
-<form method="post">
+${loginInfo}
+<hr>
+<form method="post" enctype="multipart/form-data">
     <table>
-        <tr>
-            <td>작성자</td>
-            <td><input type="text" name="writer" required></td>
-        </tr>
+        <%--     회원만 작성 가능한 게시판으로 변경 -> 삭제
+                    <tr>
+                        <td>작성자</td>
+                        <td><input type="text" name="writer" required value="${loginInfo.idx}"></td>
+                    </tr>--%>
+        <input type="hidden" name="memidx" value="${loginInfo.idx}">
         <tr>
             <td>제목</td>
             <td><input type="text" name="title" required></td>
@@ -31,6 +35,10 @@
             </td>
         </tr>
         <tr>
+            <td>첨부파일(이미지)</td>
+            <td><input type="file" name="file"></td>
+        </tr>
+        <tr>
             <td></td>
             <td>
                 <input type="reset">
@@ -38,8 +46,7 @@
             </td>
         </tr>
     </table>
-
-
 </form>
+
 </body>
 </html>

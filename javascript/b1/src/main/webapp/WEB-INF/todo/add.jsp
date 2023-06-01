@@ -9,5 +9,8 @@
 <body>
     
     <h1>Todo Add</h1>
+    <form action="/todo/add" method="post">
+        <button>add</button>
+    </form>
 </body>
 </html>

@@ -38,7 +38,6 @@ public class TodoController {
         return "/todo/modify";
     }
 
-    
     @PostMapping("add")
     public String addPost(){
         log.info("Post add...");
